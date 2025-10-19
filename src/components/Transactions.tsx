@@ -70,7 +70,7 @@ export default function TransactionHistory({ transactions }: Props) {
 
             {/* RIGHT SECTION */}
             <div className="text-right">
-              <p className="text-sm font-semibold text-gray-900">
+              <p className="text-sm font-bold text-gray-900">
                 USD {tx.amount.toLocaleString()}
               </p>
               <p className="text-xs text-gray-500">
