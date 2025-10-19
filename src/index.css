@@ -1,10 +1,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @custom-variant dark (&:is(.dark *));
 @theme {
-  /* --font-poppins: Poppins, sans-serif; */
-  --color-Primary: #131316;
+  /* closest to Degular */
+  --font-family: "Inter", sans-serif; 
+    --color-Primary: #131316;
   --color-Secondary: #EFF1F6;
   --color-Gray: #56616B;
   --color-White: #FFFFFF;
@@ -122,6 +123,8 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;}
+    @apply border-border outline-ring/50;
+    font-family: "Inter", sans-serif;}
   body {
-    @apply bg-background text-foreground;}}
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;}}
