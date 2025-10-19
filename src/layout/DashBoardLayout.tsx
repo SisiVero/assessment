@@ -9,7 +9,7 @@ import Product3 from "@/assets/svg/Product3";
 import Product4 from "@/assets/svg/Product4";
 import type { ChildrenProp } from "@/types";
 import { topNavMenu } from "@/utils";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useGetUserQuery } from "@/redux/api/baseApi";
 import ProfileDialog from "@/components/ProfileDialog";
 import AppsDetails from "@/components/AppsDetails";
@@ -18,6 +18,7 @@ import { ChevronDown } from "lucide-react";
 function DashBoardLayout({ children }: ChildrenProp) {
   const { data: user } = useGetUserQuery({});
   const location = useLocation();
+  const navigate = useNavigate()
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isAppsOpen, setIsAppsOpen] = useState(false);
   
@@ -32,7 +33,9 @@ function DashBoardLayout({ children }: ChildrenProp) {
         className="flex items-center justify-between  bg-White shadow-[0px_2px_4px_0px_rgba(45,59,67,0.05),_0px_2px_6px_0px_rgba(45,59,67,0.06)] rounded-[100px] fixed left-4 right-4 top-0  border-2 border-White z-[50]"
         style={{ padding: "16px" }}
       >
+        <button onClick={(()=> navigate("/"))} className="cursor-pointer">
         <Logo />
+        </button>
         <ul className="flex items-center gap-6">
           {topNavMenu.map((nav) => {
             const IconComponent = nav.icon;
