@@ -96,7 +96,9 @@ export function Filter({ open, onOpenChange }: FilterProps) {
             <SheetClose asChild>
               <Button
                 variant="primary"
-                className="w-[198px] py-3 px-6 font-semibold cursor-pointer"
+                className={`w-[198px] py-3 px-6 font-semibold ${
+                  !isFormValid ? 'cursor-not-allowed' : 'cursor-pointer'
+                }`}
                 disabled={!isFormValid}
               >
                 Apply
