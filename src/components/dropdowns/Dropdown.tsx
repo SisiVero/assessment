@@ -29,6 +29,7 @@ export function MultiSelectDropdown({
   onChange,
 }: MultiSelectDropdownProps) {
   const [selected, setSelected] = React.useState<string[]>(value)
+  const [open, setOpen] = React.useState(false)
 
   React.useEffect(() => {
     setSelected(value)
@@ -45,11 +46,15 @@ export function MultiSelectDropdown({
   }
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className={`${widthClass} justify-between font-normal cursor-pointer`}
+          className={`${widthClass} justify-between font-normal cursor-pointer transition-all ${
+            open ? 'border-[3px] border-Primary' : 'border border-gray-300'
+          } ${
+            selected.length > 0 ? 'bg-Secondary text-Primary' : 'bg-white'
+          }`}
         >
           <span className="truncate max-w-[calc(100%-2rem)] text-left">
             {selected.length > 0 ? selected.join(", ") : placeholder}
